@@ -9,6 +9,29 @@ navLinks.querySelectorAll("a").forEach((a) =>
   a.addEventListener("click", () => navLinks.classList.remove("open"))
 );
 
+// ---------- logo ----------
+// Accept whatever format the logo file happens to be. Drop your logo into
+// assets/ named "logo" with any of these extensions and it just works;
+// the hand-drawn placeholder is the last resort.
+const LOGO_FILES = [
+  "assets/logo.png",
+  "assets/logo.jpg",
+  "assets/logo.jpeg",
+  "assets/logo.webp",
+  "assets/logo.svg",
+  "assets/logo-placeholder.svg",
+];
+document.querySelectorAll("img.logo-img").forEach((img) => {
+  let i = 0;
+  const tryNext = () => {
+    i += 1;
+    if (i < LOGO_FILES.length) img.src = LOGO_FILES[i];
+  };
+  img.addEventListener("error", tryNext);
+  // The image may have already failed before this script ran.
+  if (img.complete && img.naturalWidth === 0) tryNext();
+});
+
 // ---------- footer year ----------
 document.getElementById("year").textContent = new Date().getFullYear();
 
