@@ -167,13 +167,12 @@ h3 { font-size: 1.15rem; }
 .btn-brick:hover { background: var(--brick-dark); }
 .btn-outline { border-color: var(--text); color: var(--text); background: transparent; }
 .btn-outline:hover { background: var(--text); color: var(--bg); }
+/* buttons that lead with an icon */
+.btn-icon { display: inline-flex; align-items: center; gap: 0.55em; }
+.btn-icon svg { width: 1.15em; height: 1.15em; flex-shrink: 0; }
 /* WhatsApp keeps its own recognisable green — people scan for it by colour. */
-.btn-whatsapp {
-  background: var(--whatsapp); color: #fff;
-  display: inline-flex; align-items: center; gap: 0.5em;
-}
+.btn-whatsapp { background: var(--whatsapp); color: #fff; }
 .btn-whatsapp:hover { background: var(--whatsapp-dark); }
-.btn-whatsapp svg { width: 1.15em; height: 1.15em; flex-shrink: 0; }
 
 /* ---------- nav ---------- */
 .nav {
@@ -260,6 +259,10 @@ h3 { font-size: 1.15rem; }
   object-fit: cover; width: 100%;
 }
 img.tile { display: block; }
+.tile.has-photo {
+  background-repeat: no-repeat; background-position: center; background-size: cover;
+}
+.tile.has-photo span { display: none; }
 
 /* ---------- areas ---------- */
 .areas-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; align-items: start; }

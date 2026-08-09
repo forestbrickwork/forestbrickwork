@@ -32,6 +32,33 @@ document.querySelectorAll("img.logo-img").forEach((img) => {
   if (img.complete && img.naturalWidth === 0) tryNext();
 });
 
+// ---------- our work gallery ----------
+// Each tile fills itself from assets/work-1 … work-6 in whichever common
+// format the file happens to be. Drop the photos in with those names and they
+// appear; until then the striped placeholder stays put.
+// "JPG" is included because phone cameras often save the extension uppercase.
+const WORK_FORMATS = ["jpg", "jpeg", "png", "webp", "JPG"];
+document.querySelectorAll(".tile[data-work]").forEach((tile) => {
+  const slot = tile.dataset.work;
+  let i = 0;
+
+  const tryNext = () => {
+    if (i >= WORK_FORMATS.length) return;
+    const src = `assets/work-${slot}.${WORK_FORMATS[i]}`;
+    i += 1;
+    const probe = new Image();
+    probe.onload = () => {
+      tile.style.backgroundImage = `url("${src}")`;
+      tile.classList.add("has-photo");
+      tile.setAttribute("aria-label", `${tile.dataset.label} by Forest Brickwork`);
+    };
+    probe.onerror = tryNext;
+    probe.src = src;
+  };
+
+  tryNext();
+});
+
 // ---------- footer year ----------
 document.getElementById("year").textContent = new Date().getFullYear();
 
