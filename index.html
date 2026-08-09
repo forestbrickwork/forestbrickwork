@@ -198,18 +198,14 @@
       <h2 class="center">Latest from Instagram</h2>
       <p class="center section-sub">New posts from <a href="https://www.instagram.com/forestbrickwork/" target="_blank" rel="noopener">@forestbrickwork</a> appear here automatically.</p>
 
-      <!--
-        TODO: Embed your live Instagram feed here.
-        Instagram doesn't offer a simple official "feed" embed, so use a free widget service:
-          1. Go to https://snapwidget.com (or https://behold.so / https://lightwidget.com)
-          2. Sign in with the Forest Brickwork Instagram account and create a free grid widget
-          3. Copy the embed code they give you and paste it here, replacing the .insta-fallback div below
-      -->
-      <div class="insta-fallback">
-        <a class="btn btn-outline" href="https://www.instagram.com/forestbrickwork/" target="_blank" rel="noopener">
-          View @forestbrickwork on Instagram →
-        </a>
-      </div>
+      <behold-widget feed-id="YgpqgKymxoHwmpzkuevh"></behold-widget>
+<script>
+  (() => {
+    if(window.__bhldScript)return;window.__bhldScript=true;
+    const d=document,s=d.createElement("script");s.type="module";
+    s.src="https://w.behold.so/widget.js";setTimeout(()=>{d.head.append(s);},0);
+  })();
+</script>
     </div>
   </section>
 
