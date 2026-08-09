@@ -36,21 +36,32 @@ document.querySelectorAll("img.logo-img").forEach((img) => {
 document.getElementById("year").textContent = new Date().getFullYear();
 
 // ---------- areas covered map (Leaflet + OpenStreetMap) ----------
-// Rough outline of the Forest of Dean district, between the Wye and the Severn.
+// Coverage area, running clockwise from Ross-on-Wye:
+// north around Ross and Newent, southeast to the River Severn, down the Severn's
+// west bank to Chepstow, north up the Wye valley to Monmouth, then a straight
+// line back up to Ross-on-Wye.
 const areaOutline = [
-  [51.925, -2.577], // south of Ross-on-Wye
-  [51.905, -2.470],
-  [51.868, -2.400], // Longhope / Huntley
-  [51.822, -2.360], // Westbury-on-Severn
-  [51.760, -2.400], // Newnham, along the Severn
-  [51.710, -2.480], // Blakeney / Lydney
-  [51.660, -2.600],
-  [51.642, -2.672], // Chepstow
-  [51.696, -2.683], // Tintern, up the Wye valley
-  [51.780, -2.700], // Redbrook
-  [51.812, -2.714], // Monmouth
-  [51.840, -2.640], // Symonds Yat
-  [51.880, -2.650], // Goodrich
+  [51.948, -2.618], // north-west of Ross-on-Wye
+  [51.951, -2.540], // north-east of Ross-on-Wye
+  [51.958, -2.468],
+  [51.962, -2.392], // north of Newent
+  [51.930, -2.326], // east of Newent
+  [51.888, -2.278],
+  [51.866, -2.268], // River Severn at Over / Maisemore
+  [51.845, -2.344], // Minsterworth
+  [51.818, -2.404], // Westbury-on-Severn
+  [51.786, -2.444], // Newnham (boundary follows the Severn here)
+  [51.752, -2.499], // Gatcombe
+  [51.715, -2.521], // Lydney harbour
+  [51.678, -2.577], // Woolaston
+  [51.630, -2.640], // Beachley / Severn bridge
+  [51.616, -2.702], // south of Chepstow
+  [51.644, -2.726], // west of Chepstow
+  [51.700, -2.702], // Tintern
+  [51.760, -2.716], // Llandogo / Bigsweir
+  [51.793, -2.742], // Redbrook
+  [51.834, -2.750], // north-west of Monmouth
+  // straight line from Monmouth back to Ross-on-Wye closes the polygon
 ];
 
 function initMap() {
@@ -84,7 +95,7 @@ form.addEventListener("submit", (e) => {
   const data = new FormData(form);
   const subject = encodeURIComponent("Quote request from the website");
   const body = encodeURIComponent(
-    `Name: ${data.get("name")}\nContact: ${data.get("contact")}\nService: ${data.get("service")}\n\n${data.get("message")}`
+    `Name: ${data.get("name")}\nContact: ${data.get("contact")}\nLocation: ${data.get("location")}\nService: ${data.get("service")}\n\n${data.get("message")}`
   );
   window.location.href = `mailto:forestbrickwork@gmail.com?subject=${subject}&body=${body}`;
   formNote.textContent = "Your email app should open with the message ready to send.";
