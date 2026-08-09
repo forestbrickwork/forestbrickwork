@@ -1,39 +1,124 @@
 /* =========================================================
-   Forest Brickwork — palette taken from the flier:
-   sage green background, charcoal ink, brick red, cream,
-   deep pine green + light pine green accents.
+   Forest Brickwork
+   Palette taken from the flier: sage green, charcoal ink,
+   brick red, cream, deep pine + light pine green.
+
+   Colours are split into two groups:
+     * brand hues  — fixed, the same in both themes
+     * semantic tokens — surfaces and text, which swap for dark mode
+   Style components through the semantic tokens only, so the dark
+   theme stays consistent. Phone browsers (Samsung Internet, Chrome
+   on Android) force-invert sites that don't declare a dark theme,
+   which left the logo's dark linework on a dark ground — declaring
+   one properly is what stops that.
    ========================================================= */
 :root {
-  /* "only light" is the explicit opt-out from Chrome/Android Auto Dark Theme.
-     Without it, phone browsers invert the page but leave the logo artwork dark,
-     leaving dark linework on a dark ground. */
-  color-scheme: only light;
+  color-scheme: light dark;
 
-  --sage: #8b9a82;        /* flier background */
-  --sage-tint: #e8ece4;   /* very light sage for alt sections */
-  --cream: #f4f2ea;       /* logo badge cream */
-  --ink: #26251f;         /* charcoal from logo linework */
-  --brick: #964f41;       /* brick red */
+  /* ---- brand hues (identical in both themes) ---- */
+  --brick: #964f41;
   --brick-dark: #7c4034;
-  --pine-dark: #2f4a35;   /* deep pine green */
-  --pine-light: #7dab7f;  /* light pine green */
-  --whatsapp: #25a95c;    /* WhatsApp green, nudged to sit with the pines */
+  --pine-dark: #2f4a35;
+  --pine-light: #7dab7f;
+  --sage: #8b9a82;
+  --cream-brand: #f4f2ea;
+  --whatsapp: #25a95c;
   --whatsapp-dark: #1d8a4b;
+
+  /* ---- semantic tokens: light theme ---- */
+  --bg: #f4f2ea;
+  --bg-alt: #e8ece4;
+  --surface: #ffffff;
+  --text: #26251f;
+  --hairline: rgba(38, 37, 31, 0.12);
+  --input-border: rgba(38, 37, 31, 0.25);
+  --input-bg: #f4f2ea;
+
+  --accent-ink: #964f41;          /* accent used as text: eyebrows, links */
+  --nav-bg: rgba(244, 242, 234, 0.92);
+
+  --hero-bg: #8b9a82;
+  --treeline: #2f4a35;
+
+  --card-1: #2f4a35;              /* service card accents, left to right */
+  --card-2: #964f41;
+  --card-3: #7dab7f;
+
+  --tile-a: #8b9a82;
+  --tile-b: #83927a;
+  --chip-border: #8b9a82;
+
+  --contact-bg: #2f4a35;
+  --contact-text: #f4f2ea;
+  --contact-heading: #ffffff;
+  --contact-hairline: rgba(244, 242, 234, 0.15);
+
+  --band-bg: #f4f2ea;             /* strip the footer treeline sits on */
+  --band-tree: #26251f;
+  --footer-bg: #26251f;
+  --footer-text: #f4f2ea;
+
+  --logo-backdrop: transparent;   /* logo needs no help on a light ground */
+
+  --success: #2f6b43;
+  --error: #a2402f;
+
   --radius: 14px;
   --shadow: 0 10px 30px rgba(38, 37, 31, 0.12);
   --font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Neutrals carry a slight warm-olive bias, taken from the logo's ink. */
+    --bg: #191a15;
+    --bg-alt: #20221b;
+    --surface: #24261e;
+    --text: #eceadf;
+    --hairline: rgba(236, 234, 223, 0.14);
+    --input-border: rgba(236, 234, 223, 0.24);
+    --input-bg: #1b1d16;
+
+    --accent-ink: #dd9078;        /* lifted so it clears contrast on dark */
+    --nav-bg: rgba(25, 26, 21, 0.92);
+
+    --hero-bg: #2f3d2a;
+    --treeline: #16190f;          /* darker than the hero, merges into the page */
+
+    --card-1: #5d8f65;
+    --card-2: #d4826c;
+    --card-3: #8fbf91;
+
+    --tile-a: #2b3226;
+    --tile-b: #333b2d;
+    --chip-border: #4a5545;
+
+    --contact-bg: #1e2a1c;
+    --contact-hairline: rgba(236, 234, 223, 0.16);
+
+    --band-bg: #1e2a1c;           /* matches the contact section above it */
+    --band-tree: #101109;
+    --footer-bg: #101109;
+
+    --logo-backdrop: #f2efe6;     /* cream plaque keeps the logo readable */
+
+    --success: #8fd0a4;
+    --error: #ef9c8a;
+
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  }
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--font);
-  color: var(--ink);
-  background: var(--cream);
+  color: var(--text);
+  background: var(--bg);
   line-height: 1.6;
 }
 img { max-width: 100%; display: block; }
-a { color: var(--brick); }
+a { color: var(--accent-ink); }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 22px; }
 .center { text-align: center; }
 
@@ -47,11 +132,21 @@ h3 { font-size: 1.15rem; }
   letter-spacing: 0.14em;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--brick);
+  color: var(--accent-ink);
   margin-bottom: 0.6em;
 }
 .eyebrow.light { color: var(--pine-light); }
 .section-sub { max-width: 620px; margin: 0 auto 2.2rem; opacity: 0.85; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid var(--pine-light);
+  outline-offset: 2px;
+}
 
 /* ---------- buttons ---------- */
 .btn {
@@ -67,10 +162,11 @@ h3 { font-size: 1.15rem; }
   transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
 }
 .btn:hover { transform: translateY(-2px); }
+.btn:disabled { opacity: 0.6; cursor: default; transform: none; }
 .btn-brick { background: var(--brick); color: #fff; }
 .btn-brick:hover { background: var(--brick-dark); }
-.btn-outline { border-color: var(--ink); color: var(--ink); background: transparent; }
-.btn-outline:hover { background: var(--ink); color: var(--cream); }
+.btn-outline { border-color: var(--text); color: var(--text); background: transparent; }
+.btn-outline:hover { background: var(--text); color: var(--bg); }
 /* WhatsApp keeps its own recognisable green — people scan for it by colour. */
 .btn-whatsapp {
   background: var(--whatsapp); color: #fff;
@@ -82,22 +178,36 @@ h3 { font-size: 1.15rem; }
 /* ---------- nav ---------- */
 .nav {
   position: sticky; top: 0; z-index: 1000;
-  background: rgba(244, 242, 234, 0.92);
+  background: var(--nav-bg);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(38, 37, 31, 0.08);
+  border-bottom: 1px solid var(--hairline);
 }
 .nav-inner { display: flex; align-items: center; gap: 1.4rem; padding: 0.6rem 22px; }
-.brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--ink); font-weight: 800; text-transform: uppercase; line-height: 1.05; letter-spacing: 0.02em; }
+.brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--text); font-weight: 800; text-transform: uppercase; line-height: 1.05; letter-spacing: 0.02em; }
 .brand img { width: 48px; height: 48px; }
 .nav-links { display: flex; gap: 1.4rem; margin-left: auto; }
-.nav-links a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
-.nav-links a:hover { color: var(--brick); }
+.nav-links a { color: var(--text); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+.nav-links a:hover { color: var(--accent-ink); }
 .nav-cta { white-space: nowrap; }
 .nav-toggle { display: none; background: none; border: none; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; }
-.nav-toggle span { width: 24px; height: 3px; background: var(--ink); border-radius: 2px; }
+.nav-toggle span { width: 24px; height: 3px; background: var(--text); border-radius: 2px; }
+
+/* ---------- logo ---------- */
+/* In dark mode the logo's fixed charcoal linework needs a light ground,
+   so it sits on a cream plaque. In light mode the backdrop is transparent
+   and these rules are inert. */
+.logo-img { background: var(--logo-backdrop); }
+.brand img { border-radius: 10px; }
+.hero-logo img { border-radius: 20px; }
+/* The footer ground is dark in BOTH themes, so its logo always needs the plaque. */
+.footer-logo { border-radius: 12px; background: var(--cream-brand); padding: 8px; }
+@media (prefers-color-scheme: dark) {
+  .brand img { padding: 4px; }
+  .hero-logo img { padding: 14px; }
+}
 
 /* ---------- hero ---------- */
-.hero { background: var(--sage); position: relative; overflow: hidden; }
+.hero { background: var(--hero-bg); position: relative; overflow: hidden; }
 .hero-inner {
   display: grid; grid-template-columns: 1.2fr 0.8fr;
   gap: 2rem; align-items: center;
@@ -106,31 +216,37 @@ h3 { font-size: 1.15rem; }
 .hero h1 { margin-bottom: 0.45em; }
 .lede { font-size: 1.12rem; max-width: 34em; margin-bottom: 1.6em; }
 .hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-bottom: 1.8rem; }
-.hero-logo img { width: min(340px, 80%); margin: 0 auto; filter: drop-shadow(0 14px 30px rgba(38,37,31,0.25)); }
+.hero-logo img { width: min(340px, 80%); margin: 0 auto; filter: drop-shadow(0 14px 30px rgba(20, 20, 14, 0.3)); }
 .trust-strip { list-style: none; display: flex; gap: 1.6rem; flex-wrap: wrap; font-weight: 600; font-size: 0.92rem; }
 .trust-strip li::before { content: "✓ "; color: var(--pine-dark); font-weight: 800; }
 .treeline { display: block; width: 100%; height: 90px; position: absolute; bottom: -1px; left: 0; }
 
+@media (prefers-color-scheme: dark) {
+  /* the hero ground is dark here, so the tick needs to lift off it */
+  .trust-strip li::before { color: var(--pine-light); }
+}
+
 /* ---------- sections ---------- */
 .section { padding: 4.5rem 0; }
-.section-alt { background: var(--sage-tint); }
+.section-alt { background: var(--bg-alt); }
 
 /* ---------- service cards ---------- */
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 2.4rem; }
 .card {
-  background: #fff; border-radius: var(--radius); padding: 2rem 1.8rem;
-  box-shadow: var(--shadow); border-top: 5px solid var(--pine-dark);
+  background: var(--surface); border-radius: var(--radius); padding: 2rem 1.8rem;
+  box-shadow: var(--shadow); border-top: 5px solid var(--card-1);
   transition: transform 0.2s ease;
 }
 .card:hover { transform: translateY(-5px); }
-.card:nth-child(2) { border-top-color: var(--brick); }
-.card:nth-child(3) { border-top-color: var(--pine-light); }
-.card-icon { width: 54px; height: 54px; color: var(--pine-dark); margin-bottom: 1rem; }
-.card:nth-child(2) .card-icon { color: var(--brick); }
-.card:nth-child(3) .card-icon { color: var(--pine-light); }
+.card:nth-child(2) { border-top-color: var(--card-2); }
+.card:nth-child(3) { border-top-color: var(--card-3); }
+.card-icon { width: 56px; height: 56px; color: var(--card-1); margin-bottom: 1rem; }
+.card-icon svg { width: 100%; height: 100%; display: block; }
+.card:nth-child(2) .card-icon { color: var(--card-2); }
+.card:nth-child(3) .card-icon { color: var(--card-3); }
 .card h3 { margin-bottom: 0.6rem; }
 .card ul { list-style: none; }
-.card li { padding: 0.35em 0; border-bottom: 1px dashed rgba(38,37,31,0.12); }
+.card li { padding: 0.35em 0; border-bottom: 1px dashed var(--hairline); }
 .card li:last-child { border-bottom: none; }
 .card small { opacity: 0.7; }
 
@@ -138,9 +254,9 @@ h3 { font-size: 1.15rem; }
 .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.4rem; }
 .tile {
   aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden;
-  background: repeating-linear-gradient(45deg, var(--sage) 0 14px, #83927a 14px 28px);
+  background: repeating-linear-gradient(45deg, var(--tile-a) 0 14px, var(--tile-b) 14px 28px);
   display: flex; align-items: center; justify-content: center;
-  color: var(--cream); font-weight: 600; text-align: center; font-size: 0.95rem;
+  color: var(--cream-brand); font-weight: 600; text-align: center; font-size: 0.95rem;
   object-fit: cover; width: 100%;
 }
 img.tile { display: block; }
@@ -149,15 +265,19 @@ img.tile { display: block; }
 .areas-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; align-items: start; }
 .map {
   height: 420px; border-radius: var(--radius); overflow: hidden;
-  box-shadow: var(--shadow); background: var(--sage-tint);
+  box-shadow: var(--shadow); background: var(--bg-alt);
   display: flex; align-items: center; justify-content: center;
 }
 .map-fallback { opacity: 0.6; font-weight: 500; padding: 1rem; text-align: center; }
 .areas-list h3 { margin-bottom: 1rem; }
 .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 0.45rem; }
 .chips li {
-  background: var(--sage-tint); border: 1.5px solid var(--sage);
+  background: var(--bg-alt); border: 1.5px solid var(--chip-border);
   padding: 0.3em 0.75em; border-radius: 999px; font-weight: 500; font-size: 0.83rem;
+}
+@media (prefers-color-scheme: dark) {
+  /* map tiles are drawn light; take the glare off without muddying them */
+  .map .leaflet-tile-pane { filter: brightness(0.82) saturate(0.9); }
 }
 
 /* ---------- instagram ---------- */
@@ -165,41 +285,43 @@ behold-widget { display: block; margin-top: 2.4rem; }
 .insta-fallback { text-align: center; padding: 2.5rem 0 1rem; }
 
 /* ---------- contact ---------- */
-.contact { background: var(--pine-dark); color: var(--cream); }
-.contact h2 { color: #fff; }
+.contact { background: var(--contact-bg); color: var(--contact-text); }
+.contact h2 { color: var(--contact-heading); }
 .contact .section-sub { opacity: 0.8; }
 .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 2.5rem; margin-top: 1.5rem; }
 .contact-line {
   display: flex; gap: 0.9rem; align-items: center; text-decoration: none;
-  color: var(--cream); padding: 1rem 0; border-bottom: 1px solid rgba(244,242,234,0.15);
+  color: var(--contact-text); padding: 1rem 0; border-bottom: 1px solid var(--contact-hairline);
 }
 .contact-line:hover strong { color: var(--pine-light); }
 .contact-ico { font-size: 1.5rem; display: inline-flex; align-items: center; justify-content: center; width: 1.5em; flex-shrink: 0; }
 .contact-ico svg { width: 1.5rem; height: 1.5rem; }
 .socials { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1.4rem; }
-.socials a { display: flex; align-items: center; gap: 0.7rem; color: var(--cream); text-decoration: none; font-weight: 500; }
+.socials a { display: flex; align-items: center; gap: 0.7rem; color: var(--contact-text); text-decoration: none; font-weight: 500; }
 .socials a:hover { color: var(--pine-light); }
 .socials svg { width: 24px; height: 24px; }
 
 .contact-form {
-  background: #fff; color: var(--ink); border-radius: var(--radius);
+  background: var(--surface); color: var(--text); border-radius: var(--radius);
   padding: 2rem; box-shadow: var(--shadow);
   display: flex; flex-direction: column; gap: 1rem;
 }
 .contact-form label { font-weight: 600; font-size: 0.92rem; display: flex; flex-direction: column; gap: 0.35rem; }
 .contact-form input, .contact-form select, .contact-form textarea {
   font-family: inherit; font-size: 1rem; padding: 0.7em 0.9em;
-  border: 1.5px solid rgba(38,37,31,0.25); border-radius: 8px; background: var(--cream);
+  border: 1.5px solid var(--input-border); border-radius: 8px;
+  background: var(--input-bg); color: var(--text);
 }
-.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
-  outline: 2px solid var(--pine-light); border-color: var(--pine-dark);
-}
-.form-note { font-size: 0.85rem; opacity: 0.75; }
+.contact-form textarea { resize: vertical; }
+.contact-form input[aria-invalid="true"] { border-color: var(--error); }
+.form-note { font-size: 0.85rem; opacity: 0.75; min-height: 1.2em; }
+.form-note.is-success { color: var(--success); opacity: 1; font-weight: 600; }
+.form-note.is-error { color: var(--error); opacity: 1; font-weight: 600; }
 
 /* ---------- footer ---------- */
-.footer { background: var(--ink); color: var(--cream); position: relative; padding-top: 0; }
-.footer .treeline-top { position: static; height: 70px; transform: none; background: var(--cream); }
-.footer .treeline-top path { fill: var(--ink); }
+.footer { background: var(--footer-bg); color: var(--footer-text); position: relative; padding-top: 0; }
+.footer .treeline-top { position: static; height: 70px; transform: none; background: var(--band-bg); }
+.footer .treeline-top path { fill: var(--band-tree); }
 .footer-inner { text-align: center; padding: 2.5rem 22px 2rem; }
 .footer-logo { width: 90px; margin: 0 auto 1rem; }
 .footer a { color: var(--pine-light); text-decoration: none; }
@@ -218,11 +340,17 @@ behold-widget { display: block; margin-top: 2.4rem; }
   .nav-toggle { display: flex; margin-left: auto; }
   .nav-links.open {
     display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
-    background: var(--cream); padding: 1.2rem 22px; gap: 1rem;
-    border-bottom: 1px solid rgba(38,37,31,0.1); box-shadow: var(--shadow);
+    background: var(--bg); padding: 1.2rem 22px; gap: 1rem;
+    border-bottom: 1px solid var(--hairline); box-shadow: var(--shadow);
   }
 }
 @media (max-width: 520px) {
   .cards, .gallery { grid-template-columns: 1fr; }
   .map { height: 320px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition-duration: 0.01ms !important; }
+  .btn:hover, .card:hover { transform: none; }
 }

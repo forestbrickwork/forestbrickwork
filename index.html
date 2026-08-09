@@ -12,10 +12,10 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/logo.png">
 
-  <!-- The brand palette is a light one (sage/cream from the flier) and the logo
-       artwork has fixed dark linework, so opt out of phone browsers' automatic
-       dark-mode inversion, which made the logo dark-on-dark. -->
-  <meta name="color-scheme" content="light">
+  <!-- Declaring both themes stops phone browsers (Samsung Internet, Chrome on
+       Android) applying their own forced inversion, which left the logo's fixed
+       dark linework sitting on a darkened ground. -->
+  <meta name="color-scheme" content="light dark">
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="style.css">
@@ -98,7 +98,7 @@
     </div>
     <!-- treeline silhouette, echoing the flier footer -->
     <svg class="treeline" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0,120 L0,70 L30,90 L45,45 L65,80 L90,55 L110,88 L130,35 L155,78 L175,60 L200,95 L225,50 L245,85 L270,40 L295,82 L320,65 L340,92 L365,42 L390,80 L410,58 L435,90 L460,48 L480,84 L505,38 L530,80 L555,62 L575,94 L600,45 L625,86 L650,55 L670,90 L695,36 L720,78 L745,60 L765,92 L790,44 L815,84 L840,52 L860,88 L885,40 L910,80 L935,64 L955,94 L980,46 L1005,86 L1030,56 L1050,90 L1075,38 L1100,78 L1125,58 L1145,92 L1170,50 L1200,75 L1200,120 Z" fill="var(--pine-dark)"/>
+      <path d="M0,120 L0,70 L30,90 L45,45 L65,80 L90,55 L110,88 L130,35 L155,78 L175,60 L200,95 L225,50 L245,85 L270,40 L295,82 L320,65 L340,92 L365,42 L390,80 L410,58 L435,90 L460,48 L480,84 L505,38 L530,80 L555,62 L575,94 L600,45 L625,86 L650,55 L670,90 L695,36 L720,78 L745,60 L765,92 L790,44 L815,84 L840,52 L860,88 L885,40 L910,80 L935,64 L955,94 L980,46 L1005,86 L1030,56 L1050,90 L1075,38 L1100,78 L1125,58 L1145,92 L1170,50 L1200,75 L1200,120 Z" fill="var(--treeline)"/>
     </svg>
   </section>
 
@@ -110,8 +110,19 @@
       <div class="cards">
         <article class="card">
           <div class="card-icon" aria-hidden="true">
-            <!-- trowel & bricks -->
-            <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"><rect x="4" y="26" width="12" height="7"/><rect x="18" y="26" width="12" height="7"/><rect x="11" y="35" width="12" height="7"/><rect x="25" y="35" width="12" height="7"/><path d="M30 20 L44 6 L40 18 L32 22 Z" fill="currentColor"/><path d="M31 21 L26 26"/></g></svg>
+            <!-- brick wall in running bond, with a trowel -->
+            <svg viewBox="0 0 48 48">
+              <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="28" width="24" height="16" rx="1.5"/>
+                <path d="M4 33.3h24M4 38.7h24"/>
+                <path d="M12 28v5.3M20 28v5.3"/>
+                <path d="M8 33.3v5.4M16 33.3v5.4M24 33.3v5.4"/>
+                <path d="M12 38.7V44M20 38.7V44"/>
+                <path d="M36.3 14.7 38.4 12.6"/>
+                <path d="M39.4 11.6 43 8" stroke-width="5" stroke-linecap="round"/>
+              </g>
+              <path d="M25 26 33.8 12.2 38.8 17.2z" fill="currentColor"/>
+            </svg>
           </div>
           <h3>Brick &amp; Stone</h3>
           <ul>
@@ -122,8 +133,16 @@
         </article>
         <article class="card">
           <div class="card-icon" aria-hidden="true">
-            <!-- house -->
-            <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"><path d="M8 22 L24 8 L40 22"/><path d="M12 20 V40 H36 V20"/><rect x="21" y="30" width="6" height="10"/><rect x="15" y="24" width="5" height="5"/><rect x="28" y="24" width="5" height="5"/></g></svg>
+            <!-- house with a slight roof overhang -->
+            <svg viewBox="0 0 48 48">
+              <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 23 24 7l19 16"/>
+                <path d="M9.5 19.2V41h29V19.2"/>
+                <rect x="20.5" y="30" width="7" height="11"/>
+                <rect x="13" y="24" width="6" height="6"/>
+                <rect x="29" y="24" width="6" height="6"/>
+              </g>
+            </svg>
           </div>
           <h3>Building Work</h3>
           <ul>
@@ -135,8 +154,14 @@
         </article>
         <article class="card">
           <div class="card-icon" aria-hidden="true">
-            <!-- shovel -->
-            <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"><path d="M30 6 L36 12 L20 28"/><path d="M33 3 L39 9"/><path d="M18 26 C10 30 6 38 8 44 C14 46 22 42 26 34 Z" fill="currentColor"/></g></svg>
+            <!-- spade -->
+            <svg viewBox="0 0 48 48">
+              <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 7h14"/>
+                <path d="M24 7v22"/>
+              </g>
+              <path d="M16.5 29h15l-1.5 7q-1 5-6 7-5-2-6-7z" fill="currentColor"/>
+            </svg>
           </div>
           <h3>Groundwork &amp; Repairs</h3>
           <ul>
@@ -253,19 +278,16 @@
           </div>
         </div>
 
-        <!--
-          TODO: Contact form — connect Formspree (free) so messages land in your inbox:
-            1. Sign up at https://formspree.io with forestbrickwork@gmail.com
-            2. Create a new form, copy its ID (looks like "mabcdefg")
-            3. Replace YOUR_FORM_ID in the action below
-          Until then, the form opens the visitor's email app instead, pre-filled.
-        -->
-        <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <!-- Posts to Formspree, which forwards each enquiry to forestbrickwork@gmail.com.
+             The action/method work on their own if JavaScript fails; script.js
+             upgrades it to submit in the background so visitors stay on the page. -->
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/maeweorl" method="POST">
+          <input type="hidden" name="_subject" value="Website enquiry — Forest Brickwork">
           <label>Name
             <input type="text" name="name" required autocomplete="name">
           </label>
-          <label>Phone or email
-            <input type="text" name="contact" required autocomplete="tel">
+          <label>Email
+            <input type="email" name="email" required autocomplete="email" data-fs-field>
           </label>
           <label>Location
             <input type="text" name="location" required autocomplete="address-level2" placeholder="Town or postcode">
@@ -284,8 +306,10 @@
           <label>Tell us about the job
             <textarea name="message" rows="4" required placeholder="e.g. Garden wall approx. 6m long in Coleford…"></textarea>
           </label>
-          <button class="btn btn-brick" type="submit">Send message</button>
-          <p class="form-note" id="formNote"></p>
+          <!-- honeypot: spam bots fill this in, people never see it -->
+          <input class="visually-hidden" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn btn-brick" type="submit" id="formSubmit">Send message</button>
+          <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
         </form>
       </div>
     </div>
@@ -294,7 +318,7 @@
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <svg class="treeline treeline-top" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0,120 L0,70 L30,90 L45,45 L65,80 L90,55 L110,88 L130,35 L155,78 L175,60 L200,95 L225,50 L245,85 L270,40 L295,82 L320,65 L340,92 L365,42 L390,80 L410,58 L435,90 L460,48 L480,84 L505,38 L530,80 L555,62 L575,94 L600,45 L625,86 L650,55 L670,90 L695,36 L720,78 L745,60 L765,92 L790,44 L815,84 L840,52 L860,88 L885,40 L910,80 L935,64 L955,94 L980,46 L1005,86 L1030,56 L1050,90 L1075,38 L1100,78 L1125,58 L1145,92 L1170,50 L1200,75 L1200,120 Z" fill="var(--pine-dark)"/>
+      <path d="M0,120 L0,70 L30,90 L45,45 L65,80 L90,55 L110,88 L130,35 L155,78 L175,60 L200,95 L225,50 L245,85 L270,40 L295,82 L320,65 L340,92 L365,42 L390,80 L410,58 L435,90 L460,48 L480,84 L505,38 L530,80 L555,62 L575,94 L600,45 L625,86 L650,55 L670,90 L695,36 L720,78 L745,60 L765,92 L790,44 L815,84 L840,52 L860,88 L885,40 L910,80 L935,64 L955,94 L980,46 L1005,86 L1030,56 L1050,90 L1075,38 L1100,78 L1125,58 L1145,92 L1170,50 L1200,75 L1200,120 Z" fill="var(--treeline)"/>
     </svg>
     <div class="container footer-inner">
       <img class="footer-logo logo-img" src="assets/logo.png" alt="Forest Brickwork logo">
