@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Forest Brickwork logo">
+  <defs>
+    <clipPath id="badge"><circle cx="200" cy="186" r="150"/></clipPath>
+  </defs>
+  <!-- outer ring -->
+  <circle cx="200" cy="186" r="168" fill="#26251f"/>
+  <circle cx="200" cy="186" r="156" fill="#f2efe6"/>
+  <circle cx="200" cy="186" r="150" fill="#f2efe6" stroke="#26251f" stroke-width="6"/>
+  <g clip-path="url(#badge)">
+    <!-- sky lines + sun -->
+    <g stroke="#26251f" stroke-width="5" stroke-linecap="round">
+      <line x1="120" y1="58" x2="280" y2="58"/>
+      <line x1="100" y1="74" x2="300" y2="74"/>
+      <line x1="140" y1="90" x2="260" y2="90"/>
+    </g>
+    <circle cx="200" cy="118" r="22" fill="#26251f"/>
+    <!-- distant pines -->
+    <g fill="#7dab7f">
+      <path d="M200 120 l-34 74 h68 z"/>
+      <path d="M166 138 l-28 62 h56 z"/>
+      <path d="M234 138 l-28 62 h56 z"/>
+    </g>
+    <!-- main pines: left -->
+    <g fill="#31543a" stroke="#26251f" stroke-width="5" stroke-linejoin="round">
+      <path d="M96 60 l-42 66 h24 l-30 52 h30 l-36 62 h108 l-36 -62 h30 l-30 -52 h24 z"/>
+      <path d="M304 60 l-42 66 h24 l-30 52 h30 l-36 62 h108 l-36 -62 h30 l-30 -52 h24 z"/>
+      <path d="M156 110 l-32 52 h18 l-24 42 h24 l-28 48 h84 l-28 -48 h24 l-24 -42 h18 z"/>
+      <path d="M244 110 l-32 52 h18 l-24 42 h24 l-28 48 h84 l-28 -48 h24 l-24 -42 h18 z"/>
+    </g>
+    <!-- path -->
+    <path d="M186 200 L214 200 L262 312 L138 312 Z" fill="#f2efe6" stroke="#26251f" stroke-width="5"/>
+    <g fill="#26251f">
+      <circle cx="196" cy="232" r="3.5"/><circle cx="210" cy="250" r="3.5"/>
+      <circle cx="188" cy="268" r="3.5"/><circle cx="212" cy="286" r="3.5"/>
+    </g>
+    <!-- brick walls -->
+    <g stroke="#26251f" stroke-width="5" fill="#964f41" stroke-linejoin="round">
+      <g>
+        <rect x="34" y="238" width="150" height="26" rx="3"/>
+        <rect x="24" y="266" width="146" height="26" rx="3"/>
+        <rect x="40" y="294" width="120" height="26" rx="3"/>
+        <line x1="90" y1="238" x2="90" y2="264"/>
+        <line x1="140" y1="238" x2="140" y2="264"/>
+        <line x1="70" y1="266" x2="70" y2="292"/>
+        <line x1="120" y1="266" x2="120" y2="292"/>
+        <line x1="96" y1="294" x2="96" y2="320"/>
+      </g>
+      <g>
+        <rect x="216" y="238" width="150" height="26" rx="3"/>
+        <rect x="230" y="266" width="146" height="26" rx="3"/>
+        <rect x="240" y="294" width="120" height="26" rx="3"/>
+        <line x1="266" y1="238" x2="266" y2="264"/>
+        <line x1="316" y1="238" x2="316" y2="264"/>
+        <line x1="280" y1="266" x2="280" y2="292"/>
+        <line x1="330" y1="266" x2="330" y2="292"/>
+        <line x1="300" y1="294" x2="300" y2="320"/>
+      </g>
+    </g>
+  </g>
+  <!-- banner -->
+  <rect x="10" y="306" width="380" height="66" fill="#26251f"/>
+  <rect x="30" y="316" width="340" height="46" fill="#f2efe6"/>
+  <text x="200" y="350" text-anchor="middle" font-family="'Arial Black','Arial',sans-serif" font-weight="900" font-size="34" letter-spacing="1" fill="#26251f">FOREST BRICKWORK</text>
+</svg>

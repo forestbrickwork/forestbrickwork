@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forest Brickwork — Quality Building Services in the Forest of Dean</title>
+  <meta name="description" content="Forest Brickwork offers brickwork, blockwork, stonework, extensions, garden walls, repointing, patios and concrete bases across the Forest of Dean and surrounding areas. 10+ years' experience. Free quotations.">
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:title" content="Forest Brickwork — Quality Building Services, Forest of Dean">
+  <meta property="og:description" content="Brickwork, stonework and building services across the Forest of Dean. Call or email for a free site visit and quotation.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logo.png">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Fonts: falls back to system fonts if unavailable -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Leaflet (interactive map for the Areas Covered section) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Local business structured data: helps Google show the business properly -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GeneralContractor",
+    "name": "Forest Brickwork",
+    "description": "Quality building services: brickwork, blockwork, stonework, extensions, garden walls, repointing, patios and concrete bases.",
+    "email": "forestbrickwork@gmail.com",
+    "telephone": "+447508728646",
+    "areaServed": "Forest of Dean and surrounding areas",
+    "image": "assets/logo.png",
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61555353504015",
+      "https://www.instagram.com/forestbrickwork/",
+      "https://share.google/am7o30OkmGjiSwfAF"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="top">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">
+        <img src="assets/logo.png" onerror="this.onerror=null;this.src='assets/logo-placeholder.svg'" alt="Forest Brickwork logo">
+        <span>Forest<br>Brickwork</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#work">Our Work</a>
+        <a href="#areas">Areas Covered</a>
+        <a href="#instagram">Instagram</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-brick nav-cta" href="#contact">Free Quote</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow">Forest of Dean &amp; surrounding areas</p>
+        <h1>Quality building services, built to last.</h1>
+        <p class="lede">Brickwork, stonework and general building from a local business with <strong>over 10 years' experience</strong>. Call or email to arrange a site visit and a free quotation.</p>
+        <div class="hero-actions">
+          <a class="btn btn-brick" href="tel:+447508728646">📞 07508 728646</a>
+          <a class="btn btn-outline" href="#contact">Get a free quote</a>
+        </div>
+        <ul class="trust-strip">
+          <li>10+ years' experience</li>
+          <li>Free quotations</li>
+          <li>Local &amp; reliable</li>
+        </ul>
+      </div>
+      <div class="hero-logo">
+        <img src="assets/logo.png" onerror="this.onerror=null;this.src='assets/logo-placeholder.svg'" alt="Forest Brickwork — circular logo with pine trees and a brick wall">
+      </div>
+    </div>
+    <!-- treeline silhouette, echoing the flier footer -->
+    <svg class="treeline" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,120 L0,70 L30,90 L45,45 L65,80 L90,55 L110,88 L130,35 L155,78 L175,60 L200,95 L225,50 L245,85 L270,40 L295,82 L320,65 L340,92 L365,42 L390,80 L410,58 L435,90 L460,48 L480,84 L505,38 L530,80 L555,62 L575,94 L600,45 L625,86 L650,55 L670,90 L695,36 L720,78 L745,60 L765,92 L790,44 L815,84 L840,52 L860,88 L885,40 L910,80 L935,64 L955,94 L980,46 L1005,86 L1030,56 L1050,90 L1075,38 L1100,78 L1125,58 L1145,92 L1170,50 L1200,75 L1200,120 Z" fill="var(--pine-dark)"/>
+    </svg>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="section" id="services">
+    <div class="container">
+      <p class="eyebrow center">What we do</p>
+      <h2 class="center">Our Services</h2>
+      <div class="cards">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <!-- trowel & bricks -->
+            <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"><rect x="4" y="26" width="12" height="7"/><rect x="18" y="26" width="12" height="7"/><rect x="11" y="35" width="12" height="7"/><rect x="25" y="35" width="12" height="7"/><path d="M30 20 L44 6 L40 18 L32 22 Z" fill="currentColor"/><path d="M31 21 L26 26"/></g></svg>
+          </div>
+          <h3>Brick &amp; Stone</h3>
+          <ul>
+            <li>Brickwork</li>
+            <li>Blockwork</li>
+            <li>Stonework</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <!-- house -->
+            <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"><path d="M8 22 L24 8 L40 22"/><path d="M12 20 V40 H36 V20"/><rect x="21" y="30" width="6" height="10"/><rect x="15" y="24" width="5" height="5"/><rect x="28" y="24" width="5" height="5"/></g></svg>
+          </div>
+          <h3>Building Work</h3>
+          <ul>
+            <li>New builds</li>
+            <li>Extensions</li>
+            <li>Garden walls</li>
+            <li>Retaining walls</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <!-- shovel -->
+            <svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"><path d="M30 6 L36 12 L20 28"/><path d="M33 3 L39 9"/><path d="M18 26 C10 30 6 38 8 44 C14 46 22 42 26 34 Z" fill="currentColor"/></g></svg>
+          </div>
+          <h3>Groundwork &amp; Repairs</h3>
+          <ul>
+            <li>Repointing</li>
+            <li>Patios &amp; walkways</li>
+            <li>Concrete bases <small>(oil tanks, sheds, etc…)</small></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OUR WORK (gallery) ============ -->
+  <section class="section section-alt" id="work">
+    <div class="container">
+      <p class="eyebrow center">Recent projects</p>
+      <h2 class="center">Our Work</h2>
+      <p class="center section-sub">A selection of recent jobs across the Forest of Dean.</p>
+      <!--
+        TODO: Replace these placeholders with real photos.
+        Drop your photos into the assets/ folder (e.g. assets/work-1.jpg) and swap each
+        <div class="tile"> for:  <img class="tile" src="assets/work-1.jpg" alt="Describe the job">
+      -->
+      <div class="gallery">
+        <div class="tile" role="img" aria-label="Photo coming soon"><span>Garden wall<br>— photo coming soon —</span></div>
+        <div class="tile" role="img" aria-label="Photo coming soon"><span>Extension<br>— photo coming soon —</span></div>
+        <div class="tile" role="img" aria-label="Photo coming soon"><span>Patio<br>— photo coming soon —</span></div>
+        <div class="tile" role="img" aria-label="Photo coming soon"><span>Repointing<br>— photo coming soon —</span></div>
+        <div class="tile" role="img" aria-label="Photo coming soon"><span>Stonework<br>— photo coming soon —</span></div>
+        <div class="tile" role="img" aria-label="Photo coming soon"><span>Concrete base<br>— photo coming soon —</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AREAS COVERED ============ -->
+  <section class="section" id="areas">
+    <div class="container">
+      <p class="eyebrow center">Where we work</p>
+      <h2 class="center">Areas Covered</h2>
+      <p class="center section-sub">Based in the Forest of Dean — we cover the whole district and surrounding areas. Not sure if we cover you? Just ask.</p>
+      <div class="areas-grid">
+        <div id="map" class="map">
+          <div class="map-fallback">Interactive map loads on the live site.</div>
+        </div>
+        <div class="areas-list">
+          <h3>Including:</h3>
+          <ul class="chips">
+            <li>Coleford</li>
+            <li>Cinderford</li>
+            <li>Lydney</li>
+            <li>Mitcheldean</li>
+            <li>Newent</li>
+            <li>Ross-on-Wye</li>
+            <li>Monmouth</li>
+            <li>Chepstow</li>
+            <li>Gloucester</li>
+            <li>&amp; surrounding areas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INSTAGRAM ============ -->
+  <section class="section section-alt" id="instagram">
+    <div class="container">
+      <p class="eyebrow center">Follow along</p>
+      <h2 class="center">Latest from Instagram</h2>
+      <p class="center section-sub">New posts from <a href="https://www.instagram.com/forestbrickwork/" target="_blank" rel="noopener">@forestbrickwork</a> appear here automatically.</p>
+
+      <!--
+        TODO: Embed your live Instagram feed here.
+        Instagram doesn't offer a simple official "feed" embed, so use a free widget service:
+          1. Go to https://snapwidget.com (or https://behold.so / https://lightwidget.com)
+          2. Sign in with the Forest Brickwork Instagram account and create a free grid widget
+          3. Copy the embed code they give you and paste it here, replacing the .insta-fallback div below
+      -->
+      <div class="insta-fallback">
+        <a class="btn btn-outline" href="https://www.instagram.com/forestbrickwork/" target="_blank" rel="noopener">
+          View @forestbrickwork on Instagram →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <p class="eyebrow center light">Free quotations</p>
+      <h2 class="center">Contact Us</h2>
+      <p class="center section-sub">Call or email to arrange a site visit and obtain a free quotation.</p>
+      <div class="contact-grid">
+        <div class="contact-details">
+          <a class="contact-line" href="tel:+447508728646">
+            <span class="contact-ico">📞</span>
+            <span><strong>07508 728646</strong><br><small>Mon–Sat</small></span>
+          </a>
+          <a class="contact-line" href="mailto:forestbrickwork@gmail.com">
+            <span class="contact-ico">✉️</span>
+            <span><strong>forestbrickwork@gmail.com</strong><br><small>We aim to reply within a day</small></span>
+          </a>
+          <div class="socials">
+            <a href="https://www.facebook.com/profile.php?id=61555353504015" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg>
+              <span>Forest Brickwork</span>
+            </a>
+            <a href="https://www.instagram.com/forestbrickwork/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.3" fill="currentColor" stroke="none"/></svg>
+              <span>@forestbrickwork</span>
+            </a>
+            <a href="https://share.google/am7o30OkmGjiSwfAF" target="_blank" rel="noopener" aria-label="Google Business Profile">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.9h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.4Z"/><path d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1a5.9 5.9 0 0 1-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22Z"/><path d="M6.4 13.9a6 6 0 0 1 0-3.8V7.5H3.1a10 10 0 0 0 0 9Z"/><path d="M12 6a5.4 5.4 0 0 1 3.8 1.5L18.7 4.6A9.6 9.6 0 0 0 12 2a10 10 0 0 0-8.9 5.5l3.3 2.6A5.9 5.9 0 0 1 12 6Z"/></svg>
+              <span>Find us on Google</span>
+            </a>
+          </div>
+        </div>
+
+        <!--
+          TODO: Contact form — connect Formspree (free) so messages land in your inbox:
+            1. Sign up at https://formspree.io with forestbrickwork@gmail.com
+            2. Create a new form, copy its ID (looks like "mabcdefg")
+            3. Replace YOUR_FORM_ID in the action below
+          Until then, the form opens the visitor's email app instead, pre-filled.
+        -->
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <label>Name
+            <input type="text" name="name" required autocomplete="name">
+          </label>
+          <label>Phone or email
+            <input type="text" name="contact" required autocomplete="tel">
+          </label>
+          <label>What do you need?
+            <select name="service">
+              <option>Brickwork / blockwork / stonework</option>
+              <option>New build / extension</option>
+              <option>Garden or retaining wall</option>
+              <option>Repointing</option>
+              <option>Patio / walkway</option>
+              <option>Concrete base</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label>Tell us about the job
+            <textarea name="message" rows="4" required placeholder="e.g. Garden wall approx. 6m long in Coleford…"></textarea>
+          </label>
+          <button class="btn btn-brick" type="submit">Send message</button>
+          <p class="form-note" id="formNote"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <svg class="treeline treeline-top" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,120 L0,70 L30,90 L45,45 L65,80 L90,55 L110,88 L130,35 L155,78 L175,60 L200,95 L225,50 L245,85 L270,40 L295,82 L320,65 L340,92 L365,42 L390,80 L410,58 L435,90 L460,48 L480,84 L505,38 L530,80 L555,62 L575,94 L600,45 L625,86 L650,55 L670,90 L695,36 L720,78 L745,60 L765,92 L790,44 L815,84 L840,52 L860,88 L885,40 L910,80 L935,64 L955,94 L980,46 L1005,86 L1030,56 L1050,90 L1075,38 L1100,78 L1125,58 L1145,92 L1170,50 L1200,75 L1200,120 Z" fill="var(--pine-dark)"/>
+    </svg>
+    <div class="container footer-inner">
+      <img class="footer-logo" src="assets/logo.png" onerror="this.onerror=null;this.src='assets/logo-placeholder.svg'" alt="Forest Brickwork logo">
+      <p><strong>Forest Brickwork</strong> — Quality building services, Forest of Dean &amp; surrounding areas.</p>
+      <p><a href="tel:+447508728646">07508 728646</a> · <a href="mailto:forestbrickwork@gmail.com">forestbrickwork@gmail.com</a></p>
+      <p class="footer-small">© <span id="year">2026</span> Forest Brickwork. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
