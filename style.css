@@ -199,16 +199,21 @@ input, textarea { cursor: text; }
 .nav-toggle span { width: 24px; height: 3px; background: var(--text); border-radius: 2px; }
 
 /* ---------- logo ---------- */
-/* The logo is ~77% near-black linework, so on a dark ground most of it simply
-   disappears. Putting a light panel behind it didn't work — Samsung Internet
+/* The logo is ~77% near-black linework, so on a dark ground most of it
+   disappears. A CSS background behind it doesn't help: Samsung Internet
    darkens light backgrounds in dark mode even when the page declares its own
-   dark theme. Instead there are two artwork files: assets/logo-dark.png has
-   the neutral tones flipped (ink -> cream, highlights -> dark) while the
-   greens and bricks are untouched, so it reads on a dark ground with no panel
-   at all. <picture> swaps them, so it costs no JavaScript.
-   NOTE: if the logo is ever replaced, regenerate logo-dark.png to match. */
+   dark theme. So the sage green from the flier is baked INTO the image file
+   (assets/logo-sage.png) — as image content it isn't subject to that
+   background darkening. The artwork itself is untouched. <picture> serves it
+   on dark grounds and the plain transparent logo on light ones, costing no
+   JavaScript. Corners are rounded here rather than in the file so the radius
+   can differ per placement.
+   NOTE: if the logo is ever replaced, regenerate logo-sage.png to match. */
 picture { display: block; }
 .brand picture { width: 48px; }
+.brand img { border-radius: 10px; }
+.hero-logo img { border-radius: 18px; }
+.footer-logo { border-radius: 12px; }
 
 /* ---------- hero ---------- */
 .hero { background: var(--hero-bg); position: relative; overflow: hidden; }
