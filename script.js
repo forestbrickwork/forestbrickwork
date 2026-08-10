@@ -10,16 +10,14 @@ navLinks.querySelectorAll("a").forEach((a) =>
 );
 
 // ---------- logo ----------
-// Accept whatever format the logo file happens to be. Drop your logo into
-// assets/ named "logo" with any of these extensions and it just works;
-// the hand-drawn placeholder is the last resort.
+// Accept whatever format the logo file happens to be, so swapping it out is
+// just a matter of dropping a new file into assets/ named "logo".
 const LOGO_FILES = [
   "assets/logo.png",
   "assets/logo.jpg",
   "assets/logo.jpeg",
   "assets/logo.webp",
   "assets/logo.svg",
-  "assets/logo-placeholder.svg",
 ];
 document.querySelectorAll("img.logo-img").forEach((img) => {
   let i = 0;
