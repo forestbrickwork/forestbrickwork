@@ -50,7 +50,6 @@ document.querySelectorAll(".tile[data-work]").forEach((tile) => {
     probe.onload = () => {
       tile.style.backgroundImage = `url("${src}")`;
       tile.classList.add("has-photo");
-      tile.setAttribute("aria-label", `${tile.dataset.label} by Forest Brickwork`);
     };
     probe.onerror = tryNext;
     probe.src = src;
@@ -92,10 +91,20 @@ const areaOutline = [
 ];
 
 function initMap() {
-  if (typeof L === "undefined") return; // Leaflet failed to load — fallback text stays
   const mapEl = document.getElementById("map");
+  if (typeof L === "undefined") {
+    // Leaflet blocked or offline — say something true rather than "loading".
+    mapEl.querySelector(".map-fallback").textContent =
+      "Map unavailable — the areas we cover are listed alongside.";
+    return;
+  }
   mapEl.innerHTML = "";
-  const map = L.map(mapEl, { scrollWheelZoom: false }).setView([51.79, -2.55], 10);
+  const map = L.map(mapEl, {
+    scrollWheelZoom: false,
+    // Without this, swiping to scroll the page pans the map instead.
+    dragging: !L.Browser.mobile,
+  }).setView([51.79, -2.55], 10);
+  mapEl.classList.add("is-live");
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 17,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',

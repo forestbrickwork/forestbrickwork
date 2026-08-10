@@ -122,7 +122,7 @@ a { color: var(--accent-ink); }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 22px; }
 .center { text-align: center; }
 
-h1, h2, h3 { line-height: 1.15; font-weight: 700; }
+h1, h2, h3 { line-height: 1.15; font-weight: 700; text-wrap: balance; }
 h1 { font-size: clamp(2.1rem, 4.5vw, 3.4rem); font-weight: 800; }
 h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-bottom: 0.4em; }
 h3 { font-size: 1.15rem; }
@@ -256,9 +256,7 @@ h3 { font-size: 1.15rem; }
   background: repeating-linear-gradient(45deg, var(--tile-a) 0 14px, var(--tile-b) 14px 28px);
   display: flex; align-items: center; justify-content: center;
   color: var(--cream-brand); font-weight: 600; text-align: center; font-size: 0.95rem;
-  object-fit: cover; width: 100%;
 }
-img.tile { display: block; }
 .tile.has-photo {
   background-repeat: no-repeat; background-position: center; background-size: cover;
 }
@@ -271,6 +269,8 @@ img.tile { display: block; }
   box-shadow: var(--shadow); background: var(--bg-alt);
   display: flex; align-items: center; justify-content: center;
 }
+/* the flex centring above is only for the fallback message */
+.map.is-live { display: block; }
 .map-fallback { opacity: 0.6; font-weight: 500; padding: 1rem; text-align: center; }
 .areas-list h3 { margin-bottom: 1rem; }
 .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 0.45rem; }
@@ -285,7 +285,6 @@ img.tile { display: block; }
 
 /* ---------- instagram ---------- */
 behold-widget { display: block; margin-top: 2.4rem; }
-.insta-fallback { text-align: center; padding: 2.5rem 0 1rem; }
 
 /* ---------- contact ---------- */
 .contact { background: var(--contact-bg); color: var(--contact-text); }

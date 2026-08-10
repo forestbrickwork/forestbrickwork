@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Forest Brickwork — Quality Building Services in the Forest of Dean</title>
-  <meta name="description" content="Forest Brickwork offers brickwork, blockwork, stonework, extensions, garden walls, repointing, patios and concrete bases across the Forest of Dean and surrounding areas. 10+ years experience. Free quotations.">
+  <meta name="description" content="Brickwork, blockwork, stonework, extensions, garden walls, repointing and patios across the Forest of Dean. 10+ years experience. Free quotations.">
 
-  <!-- Open Graph / social sharing -->
+  <!-- Open Graph / social sharing. Facebook and WhatsApp only accept ABSOLUTE
+       image and page URLs — a relative path gives a preview with no picture.
+       CHANGE BOTH URLS BELOW once a custom domain is set up. -->
   <meta property="og:title" content="Forest Brickwork — Quality Building Services, Forest of Dean">
   <meta property="og:description" content="Brickwork, stonework and building services across the Forest of Dean. Call or email for a free site visit and quotation.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/logo.png">
+  <meta property="og:site_name" content="Forest Brickwork">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="https://forestbrickwork.github.io/forestbrickwork/">
+  <meta property="og:image" content="https://forestbrickwork.github.io/forestbrickwork/assets/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
 
   <!-- Declaring both themes stops phone browsers (Samsung Internet, Chrome on
        Android) applying their own forced inversion, which left the logo's fixed
@@ -18,6 +24,9 @@
   <meta name="color-scheme" content="light dark">
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+  <meta name="theme-color" content="#8b9a82" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#191a15" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="style.css">
 
   <!-- Fonts: falls back to system fonts if unavailable -->
@@ -185,12 +194,12 @@
         <div class="tile"> for:  <img class="tile" src="assets/work-1.jpg" alt="Describe the job">
       -->
       <div class="gallery">
-        <div class="tile" data-work="1" data-label="Garden wall" role="img" aria-label="Garden wall — photo coming soon"><span>Garden wall<br>— photo coming soon —</span></div>
-        <div class="tile" data-work="2" data-label="Extension" role="img" aria-label="Extension — photo coming soon"><span>Extension<br>— photo coming soon —</span></div>
-        <div class="tile" data-work="3" data-label="Patio" role="img" aria-label="Patio — photo coming soon"><span>Patio<br>— photo coming soon —</span></div>
-        <div class="tile" data-work="4" data-label="Repointing" role="img" aria-label="Repointing — photo coming soon"><span>Repointing<br>— photo coming soon —</span></div>
-        <div class="tile" data-work="5" data-label="Stonework" role="img" aria-label="Stonework — photo coming soon"><span>Stonework<br>— photo coming soon —</span></div>
-        <div class="tile" data-work="6" data-label="Concrete base" role="img" aria-label="Concrete base — photo coming soon"><span>Concrete base<br>— photo coming soon —</span></div>
+        <div class="tile" data-work="1" role="img" aria-label="Recent work by Forest Brickwork"><span>— photo coming soon —</span></div>
+        <div class="tile" data-work="2" role="img" aria-label="Recent work by Forest Brickwork"><span>— photo coming soon —</span></div>
+        <div class="tile" data-work="3" role="img" aria-label="Recent work by Forest Brickwork"><span>— photo coming soon —</span></div>
+        <div class="tile" data-work="4" role="img" aria-label="Recent work by Forest Brickwork"><span>— photo coming soon —</span></div>
+        <div class="tile" data-work="5" role="img" aria-label="Recent work by Forest Brickwork"><span>— photo coming soon —</span></div>
+        <div class="tile" data-work="6" role="img" aria-label="Recent work by Forest Brickwork"><span>— photo coming soon —</span></div>
       </div>
     </div>
   </section>
@@ -203,7 +212,7 @@
       <p class="center section-sub">Based in the Forest of Dean — we cover the whole district and surrounding areas. Not sure if we cover you? Just ask.</p>
       <div class="areas-grid">
         <div id="map" class="map">
-          <div class="map-fallback">Interactive map loads on the live site.</div>
+          <div class="map-fallback">Loading map…</div>
         </div>
         <div class="areas-list">
           <h3>Including:</h3>
@@ -287,7 +296,7 @@
             <input type="text" name="name" required autocomplete="name">
           </label>
           <label>Email
-            <input type="email" name="email" required autocomplete="email" data-fs-field>
+            <input type="email" name="email" required autocomplete="email">
           </label>
           <label>Location
             <input type="text" name="location" required autocomplete="address-level2" placeholder="Town or postcode">
