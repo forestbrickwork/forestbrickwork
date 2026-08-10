@@ -190,7 +190,7 @@ input, textarea { cursor: text; }
 }
 .nav-inner { display: flex; align-items: center; gap: 1.4rem; padding: 0.6rem 22px; }
 .brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--text); font-weight: 800; text-transform: uppercase; line-height: 1.05; letter-spacing: 0.02em; }
-.brand img { width: 48px; height: 48px; }
+.brand img { width: 48px; height: auto; }
 .nav-links { display: flex; gap: 1.4rem; margin-left: auto; }
 .nav-links a { color: var(--text); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
 .nav-links a:hover { color: var(--accent-ink); }
@@ -199,18 +199,18 @@ input, textarea { cursor: text; }
 .nav-toggle span { width: 24px; height: 3px; background: var(--text); border-radius: 2px; }
 
 /* ---------- logo ---------- */
-/* The logo is ~77% near-black linework, so on a dark ground most of it
-   disappears. A CSS background behind it doesn't help: Samsung Internet
-   darkens light backgrounds in dark mode even when the page declares its own
-   dark theme. So the sage green from the flier is baked INTO the image file
-   (assets/logo-sage.png) — as image content it isn't subject to that
-   background darkening. The artwork itself is untouched. <picture> serves it
-   on dark grounds and the plain transparent logo on light ones, costing no
-   JavaScript. The rounded corners are baked into that file so the radius stays
-   proportional whether it renders at 48px in the nav or 340px in the hero.
-   NOTE: if the logo is ever replaced, regenerate logo-sage.png to match. */
-picture { display: block; }
-.brand picture { width: 48px; }
+/* The logo is ~77% near-black linework, so it vanishes on any dark ground.
+   Two things that did NOT work: a CSS background behind it (Samsung Internet
+   darkens light backgrounds), and swapping artwork via
+   prefers-color-scheme (Samsung darkens the page without reporting dark mode,
+   so the swap never fired). So there is now ONE logo file with the flier's
+   sage green and the rounded corners baked in, served unconditionally. As
+   image content it is not subject to background darkening, and it needs no
+   media query to be correct. Light mode is unaffected in the hero because
+   that ground is the same sage. Baked-in rounding also keeps the radius
+   proportional at 48px and at 340px alike.
+   NOTE: if the logo is ever replaced, regenerate logo-sage.png to match, and
+   bump the ?v= number in index.html to push it past caches. */
 
 /* ---------- hero ---------- */
 .hero { background: var(--hero-bg); position: relative; overflow: hidden; }
