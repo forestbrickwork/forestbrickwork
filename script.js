@@ -9,27 +9,6 @@ navLinks.querySelectorAll("a").forEach((a) =>
   a.addEventListener("click", () => navLinks.classList.remove("open"))
 );
 
-// ---------- logo ----------
-// Accept whatever format the logo file happens to be, so swapping it out is
-// just a matter of dropping a new file into assets/ named "logo".
-const LOGO_FILES = [
-  "assets/logo.png",
-  "assets/logo.jpg",
-  "assets/logo.jpeg",
-  "assets/logo.webp",
-  "assets/logo.svg",
-];
-document.querySelectorAll("img.logo-img").forEach((img) => {
-  let i = 0;
-  const tryNext = () => {
-    i += 1;
-    if (i < LOGO_FILES.length) img.src = LOGO_FILES[i];
-  };
-  img.addEventListener("error", tryNext);
-  // The image may have already failed before this script ran.
-  if (img.complete && img.naturalWidth === 0) tryNext();
-});
-
 // ---------- our work gallery ----------
 // Each tile fills itself from assets/work-1 … work-6 in whichever common
 // format the file happens to be. Drop the photos in with those names and they

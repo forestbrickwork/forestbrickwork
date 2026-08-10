@@ -58,7 +58,6 @@
   --footer-bg: #26251f;
   --footer-text: #f4f2ea;
 
-  --logo-backdrop: transparent;   /* logo needs no help on a light ground */
 
   --success: #2f6b43;
   --error: #a2402f;
@@ -100,7 +99,6 @@
     --band-tree: #101109;
     --footer-bg: #101109;
 
-    --logo-backdrop: #f2efe6;     /* cream plaque keeps the logo readable */
 
     --success: #8fd0a4;
     --error: #ef9c8a;
@@ -201,26 +199,16 @@ input, textarea { cursor: text; }
 .nav-toggle span { width: 24px; height: 3px; background: var(--text); border-radius: 2px; }
 
 /* ---------- logo ---------- */
-/* The cream backdrop is painted on a wrapping .logo-frame, not the <img>
-   itself. Samsung Internet (confirmed on a real device) dims <img> elements
-   in dark mode as its own pass on top of the page's declared dark theme, so
-   a background set directly on the image got dimmed along with the artwork
-   and disappeared. A background on a plain wrapping element isn't "image
-   content" to that pass, so it should stay visible regardless. */
-.logo-frame { display: flex; }
-.brand .logo-frame { border-radius: 10px; }
-.hero-logo { display: flex; justify-content: center; }
-.hero-logo .logo-frame { border-radius: 20px; }
-/* The footer ground is dark in BOTH themes, so its plaque is always on. */
-.footer-logo-frame {
-  display: flex; width: fit-content; margin: 0 auto 1rem; padding: 8px;
-  border-radius: 12px; background: var(--cream-brand);
-}
-@media (prefers-color-scheme: dark) {
-  .brand .logo-frame, .hero-logo .logo-frame { background: var(--logo-backdrop); }
-  .brand .logo-frame { padding: 4px; }
-  .hero-logo .logo-frame { padding: 14px; }
-}
+/* The logo is ~77% near-black linework, so on a dark ground most of it simply
+   disappears. Putting a light panel behind it didn't work — Samsung Internet
+   darkens light backgrounds in dark mode even when the page declares its own
+   dark theme. Instead there are two artwork files: assets/logo-dark.png has
+   the neutral tones flipped (ink -> cream, highlights -> dark) while the
+   greens and bricks are untouched, so it reads on a dark ground with no panel
+   at all. <picture> swaps them, so it costs no JavaScript.
+   NOTE: if the logo is ever replaced, regenerate logo-dark.png to match. */
+picture { display: block; }
+.brand picture { width: 48px; }
 
 /* ---------- hero ---------- */
 .hero { background: var(--hero-bg); position: relative; overflow: hidden; }
@@ -232,7 +220,7 @@ input, textarea { cursor: text; }
 .hero h1 { margin-bottom: 0.45em; }
 .lede { font-size: 1.12rem; max-width: 34em; margin-bottom: 1.6em; }
 .hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-bottom: 1.8rem; }
-.hero-logo img { width: min(340px, 80%); filter: drop-shadow(0 14px 30px rgba(20, 20, 14, 0.3)); }
+.hero-logo img { width: min(340px, 80%); margin: 0 auto; filter: drop-shadow(0 14px 30px rgba(20, 20, 14, 0.3)); }
 .trust-strip { list-style: none; display: flex; gap: 1.6rem; flex-wrap: wrap; font-weight: 600; font-size: 0.92rem; }
 .trust-strip li::before { content: "✓ "; color: var(--pine-dark); font-weight: 800; }
 .treeline { display: block; width: 100%; height: 90px; position: absolute; bottom: -1px; left: 0; }
@@ -348,7 +336,7 @@ behold-widget { display: block; margin-top: 2.4rem; max-width: 100%; overflow-x:
 .footer .treeline-top { position: static; height: 70px; transform: none; background: var(--band-bg); }
 .footer .treeline-top path { fill: var(--band-tree); }
 .footer-inner { text-align: center; padding: 2.5rem 22px 2rem; }
-.footer-logo { width: 90px; }
+.footer-logo { width: 90px; margin: 0 auto 1rem; }
 .footer a { color: var(--pine-light); text-decoration: none; }
 .footer-small { opacity: 0.55; font-size: 0.85rem; margin-top: 1rem; }
 
