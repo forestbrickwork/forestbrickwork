@@ -206,14 +206,11 @@ input, textarea { cursor: text; }
    (assets/logo-sage.png) — as image content it isn't subject to that
    background darkening. The artwork itself is untouched. <picture> serves it
    on dark grounds and the plain transparent logo on light ones, costing no
-   JavaScript. Corners are rounded here rather than in the file so the radius
-   can differ per placement.
+   JavaScript. The rounded corners are baked into that file so the radius stays
+   proportional whether it renders at 48px in the nav or 340px in the hero.
    NOTE: if the logo is ever replaced, regenerate logo-sage.png to match. */
 picture { display: block; }
 .brand picture { width: 48px; }
-.brand img { border-radius: 10px; }
-.hero-logo img { border-radius: 18px; }
-.footer-logo { border-radius: 12px; }
 
 /* ---------- hero ---------- */
 .hero { background: var(--hero-bg); position: relative; overflow: hidden; }
