@@ -148,6 +148,15 @@ h3 { font-size: 1.15rem; }
   outline-offset: 2px;
 }
 
+/* ---------- trowel cursor ---------- */
+/* A small flourish for a bricklayer: the default pointer is a trowel, with the
+   blade tip as the hotspot (2 2) so it still aims exactly like an arrow.
+   Anything interactive keeps its usual cursor so nothing becomes harder to use,
+   and the trailing `auto` covers any browser that rejects the image. */
+body { cursor: url("assets/cursor-trowel.png") 2 2, auto; }
+a, button, summary, label, select, [role="button"] { cursor: pointer; }
+input, textarea { cursor: text; }
+
 /* ---------- buttons ---------- */
 .btn {
   display: inline-block;
